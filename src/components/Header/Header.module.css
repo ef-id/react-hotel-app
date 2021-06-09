@@ -1,0 +1,27 @@
+.navbarLink{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color: black
+}
+.navbarLink:hover{
+    border-bottom: 3px solid #000;
+    color: black;
+}
+.bookingBtn{
+    margin-left: 5em;
+    background-color: #bf2f30;
+    color: white;
+    border-radius: 3%;
+    align-content: center;
+}
+.bookingBtn:hover{
+    background-color: white;
+    border: 1px solid #bf2f30;
+    color: #bf2f30;
+}
+.logoImg{
+    width: 100px;
+}
+.image{
+    max-width: 100%;
+}

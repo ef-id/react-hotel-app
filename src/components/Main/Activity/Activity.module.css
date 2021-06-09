@@ -1,0 +1,15 @@
+.container{
+    text-align: center;
+}
+
+.image{
+    width: 100%;
+    border-radius: 2%;
+    box-shadow: 5px 5px 8px rgb(153, 153, 153);
+    object-fit: cover;
+}
+.title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    margin-top: 3px;
+}

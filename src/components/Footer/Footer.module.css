@@ -1,0 +1,30 @@
+/* .footer{
+    background-color: #f3f3f2;
+    align-content: center;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 1em;;
+    height: 4em;
+    vertical-align: middle;
+}
+
+.footerParagraph{
+    align-content: center;
+    text-align: center;
+    
+} */
+
+.footer{
+    margin-top: 2em;
+    background-color:black;    
+    color: white;    
+    text-align: center;    
+    line-height: 80px;    
+    height: 80px;    
+    width: 100%;
+}
+
+.footerParagraph {    
+    display: inline-block;    
+    vertical-align: middle;
+}
