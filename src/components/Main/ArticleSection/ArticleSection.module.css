@@ -1,0 +1,45 @@
+/*First Section*/
+
+.firstSection{
+    padding: 0;
+    background-color:#979082;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    
+}
+.firstSectionTitle{
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-right: 2em;
+    margin-left: 50%;
+    text-transform: uppercase;
+}
+
+
+/*Second Section*/
+
+.secondSection{
+    margin-left: 3em;
+    height: 300px;
+    align-items: center;
+    padding-top: 2em;
+}
+.secondSectionTitle{
+    color: #59d0d8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.secondSectionDesc{
+    width: 400px;
+    text-align: left;
+    font-family: var(--main-font);
+    font-weight: bold;
+    color:#a5998b;
+}

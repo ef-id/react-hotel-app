@@ -1,0 +1,12 @@
+.content{
+    margin: 1em 0;
+}
+.image{
+    height: 400px;
+    width: 350px;
+    object-fit: cover;
+}
+.image:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}

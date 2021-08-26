@@ -1,0 +1,28 @@
+.container{
+    color: #979082;
+    
+}
+.modalHeader{
+    background-color: #979082;
+    padding: 0.5% 0;
+    margin-bottom: 2em;
+}
+.modalTitle{
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.overnights{
+    margin-left: 2em;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.errors{
+    color: red;
+    font-style: italic;
+    padding-left: 0.5em;
+}
+
+

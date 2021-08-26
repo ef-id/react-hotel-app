@@ -1,0 +1,23 @@
+.container{
+    margin-top: 2em;
+    width: 90%;
+}
+
+.contacts{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #979082;
+}
+
+.frame{
+    border: 0;
+    width: 60vw;
+    height: 65vh;
+}
+
+.info span{
+    display: block;
+}
+
+.titles{
+    font-weight: bold;
+}

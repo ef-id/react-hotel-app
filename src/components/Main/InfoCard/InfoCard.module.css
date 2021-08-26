@@ -1,0 +1,15 @@
+.offersContent{
+    text-align: left;
+    padding: 0 4em;
+    margin-bottom: 2em;
+}
+.offersTitle{
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #59d0d8;
+}
+.offersDesc{
+    color: grey;
+    text-align: justify;
+}

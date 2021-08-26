@@ -1,27 +1,30 @@
 .navbarLink{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    color: black
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    padding: 0 1em;
+    color: #979082;
+    text-transform: uppercase;
 }
 .navbarLink:hover{
-    border-bottom: 3px solid #000;
-    color: black;
+    text-decoration: none;
+    color: #59d0d8;
 }
 .bookingBtn{
-    margin-left: 5em;
-    background-color: #bf2f30;
-    color: white;
+    margin-left: 4em;
+    padding: 0.5em 1em;
+    border: 1px solid #59d0d8;
+    color: #59d0d8;
     border-radius: 3%;
     align-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 .bookingBtn:hover{
-    background-color: white;
-    border: 1px solid #bf2f30;
-    color: #bf2f30;
+    text-decoration: none;
+    background-color: #59d0d8;
+    color: #fff;
 }
 .logoImg{
-    width: 100px;
-}
-.image{
-    max-width: 100%;
+    width: 125px;
 }

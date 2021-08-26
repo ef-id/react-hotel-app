@@ -1,19 +1,31 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import style from '../Navigation/Navigation.module.css';
+import style from './Navigation.module.css';
+
+import { Link } from 'react-router-dom';
+
+import UserContext from '../../../context/UserContext';
+import { useContext } from 'react';
 
 
 const Navigation = () => {
-    return (
-        <Navbar>
-            <Container fluid>
-                <Navbar.Collapse className="justify-content-end">
-                    <Nav.Link className={style.navbarLink}>Login</Nav.Link>
-                    <Nav.Link className={style.navbarLink}>Register</Nav.Link>
-                </Navbar.Collapse>
 
-            </Container>
-        </Navbar>
+    const user = useContext(UserContext);
+
+    return (
+            <Navbar>
+                <Container fluid>
+                    <Navbar.Collapse className="justify-content-end">
+                        <span className={style.navbarWelcomeText} style={{ display: user ? 'block' : 'none' }}>Welcome, {user?.email}</span>
+                        <Link className={style.navbarLink} style={{ display: user ? 'block' : 'none' }} to="/logout">Logout</Link>
+                        <Link className={style.navbarLink} style={{ display: user ? 'none' : 'block' }} to="/login">Login</Link>
+                        <Link className={style.navbarLink} style={{ display: user ? 'none' : 'block' }} to="/register">Register</Link>
+                    </Navbar.Collapse>
+
+                </Container>
+            </Navbar>
     );
 }
+
+Navigation.contextType = UserContext; 
 
 export default Navigation;
