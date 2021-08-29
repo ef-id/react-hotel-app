@@ -36,7 +36,7 @@ function App() {
 
     return (
         <UserContext.Provider value={user}>
-            <Container fluid>
+            <Container fluid className="pageContainer">
                 <Header />
 
                 <Switch>

@@ -1,16 +1,22 @@
+.colLeft{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: flex-start;
+    
+}
 .title{
+    margin-top: 2em;
     color: #59d0d8;
     font-size: 25px;
-    padding-bottom: 1em;
-    padding-top: 2em;
 }
 .desc{
+    margin-top: 0.5em;
     color: #979082;
-    margin-bottom: 20px;
 }
 .info{
     color: #979082;
-    margin-top: 1em;
+    margin-top: 2em;
     width: 70%;
     text-align: justify;
 }

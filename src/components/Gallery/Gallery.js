@@ -29,6 +29,7 @@ let images = [
 ];
 
 const MyGallery = () => {
+
     return (
         <Gallery>
             <Row md={4}>

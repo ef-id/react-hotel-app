@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { Container, Row, Col, Table, Button } from 'react-bootstrap';
 import style from './MyBookings.module.css';
@@ -25,7 +25,7 @@ const MyBookings = () => {
 
     const onCancelHandler = (e) => {
         e.preventDefault();
-        let idWe = e.target.parentElement.parentElement.dataset.id;
+        let idDel = e.target.parentElement.parentElement.dataset.id;
 
         Swal.fire({
             title: 'Are you sure to cancel this booking?',
@@ -39,7 +39,7 @@ const MyBookings = () => {
         }).then((result) => {
             if (result.value) {
                 console.log('yes')
-                return fetch(`http://localhost:5001/bookings/${idWe}`, { method: 'DELETE' })
+                return fetch(`http://localhost:5001/bookings/${idDel}`, { method: 'DELETE' })
                     .then(res => res.json())
                     .then(response => {
                         Swal.fire({
@@ -54,6 +54,7 @@ const MyBookings = () => {
         })
     }
 
+    console.log(data == null);
 
     return (
         <Container fluid className={style.container}>
@@ -63,40 +64,46 @@ const MyBookings = () => {
                 </Col>
             </Row>
 
-            <Table hover className={style.table}>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Room</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Overnights</th>
-                        <th>Guests</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map(x => (
-                        <tr data-id={x.id}>
-                            <td>{x.firstName}</td>
-                            <td>{x.lastName}</td>
-                            <td>{x.email}</td>
-                            <td>{x.phone}</td>
-                            <td>{x.room}</td>
-                            <td>{x.startDate}</td>
-                            <td>{x.endDate}</td>
-                            <td>{x.overnights}</td>
-                            <td>{x.adultCount}</td>
-                            <td>€{x.totalPrice}</td>
-                            <td><Button variant="danger" onClick={onCancelHandler}>Cancel Booking</Button></td>
+            {data != false ?
+                <Table hover className={style.table}>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Room</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Overnights</th>
+                            <th>Guests</th>
+                            <th>Price</th>
+                            <th></th>
                         </tr>
-                    ))}
-                </tbody>
-            </Table>
+                    </thead>
+                    <tbody>
+                        {data.map(x => (
+                            <tr data-id={x.id}>
+                                <td>{x.firstName}</td>
+                                <td>{x.lastName}</td>
+                                <td>{x.email}</td>
+                                <td>{x.phone}</td>
+                                <td>{x.room}</td>
+                                <td>{x.startDate}</td>
+                                <td>{x.endDate}</td>
+                                <td>{x.overnights}</td>
+                                <td>{x.adultCount}</td>
+                                <td>€{x.totalPrice}</td>
+                                <td><Button variant="danger" onClick={onCancelHandler}>Cancel Booking</Button></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                : <div className={style.noBoookingContainer}>
+                    <h3 className={style.noBookingTitle}>No Bookings</h3>
+                    <Link className={style.bookingBtn} to={'/booking'}>Book Your Stay</Link>
+                </div>
+            }
         </Container>
 
     );

@@ -21,8 +21,19 @@ const Booking = () => {
 
     const history = useHistory();
 
+    let guestNumberOptions = [1, 2, 3, 4, 5];
+    let roomsOptions = [
+        'Side Sea View Room',
+        'Premium Side Sea View Room',
+        'Family Room with Sea View',
+        'Family Room with Side Sea View',
+        'Maisonette With Sea View',
+        'Lagoon Swim-Up Room'
+    ];
+
+    let [emailValue, setEmail] = useState(user.email);
     let [guestsCount, setGuestsCount] = useState(1);
-    let [room, setRoom] = useState();
+    let [room, setRoom] = useState('Side Sea View Room');
 
     let [startDate, setStartDate] = useState();
     let [endDate, setEndDate] = useState();
@@ -37,6 +48,11 @@ const Booking = () => {
         let nightsCount = dateCompare(d1, d2);
         setNights(nightsCount)
         onInfoChangeHandler(room, nightsCount, guestsCount);
+    }
+
+    const onChangeEmailHandler = (e) => {
+        let email = e.target.value;
+        setEmail(email);
     }
 
     const onChangeGuestsHandler = (e) => {
@@ -75,7 +91,6 @@ const Booking = () => {
     }
 
 
-
     function convert(str) {
         var date = new Date(str),
             mnth = ("0" + (date.getMonth() + 1)).slice(-2),
@@ -108,7 +123,7 @@ const Booking = () => {
         const creator = user.uid;
         const firstName = e.target.firstName.value;
         const lastName = e.target.lastName.value;
-        const email = e.target.email.value;
+        const email = emailValue;
         const phone = e.target.phone.value;
         const guestsCountValue = guestsCount;
         const roomValue = room;
@@ -155,15 +170,15 @@ const Booking = () => {
                     <Form.Group as={Col} controlId="formGridLastName">
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" name="lastName" placeholder="Enter last name" {...register("lastName", { required: true, minLength: 2 })} />
-                        {errors.lastName && errors.lastName.type === "required" && <span className={style.errors} >Last name is required</span>}
-                        {errors.lastName && errors.lastName.type === "minLength" && <span className={style.errors} >The field must be at least 2 characters</span>}
+                        {errors.lastName && errors.lastName.type === "required" && <span className={style.errors}>Last name is required</span>}
+                        {errors.lastName && errors.lastName.type === "minLength" && <span className={style.errors}>The field must be at least 2 characters</span>}
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                    <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Group as={Col} controlId="formGridEmail" onChange={onChangeEmailHandler}>
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="text" name="email" placeholder="Enter email" {...register("email", {
+                        <Form.Control type="text" name="email" placeholder="Enter email" value={emailValue} {...register("email", {
                             required: true, pattern: {
                                 value: /\S+@\S+\.\S{2,}/,
                                 message: "Entered value does not match email format"
@@ -177,10 +192,10 @@ const Booking = () => {
                         <Form.Label>Phone</Form.Label>
                         <Form.Control type="text" name="phone" placeholder="Enter phone" {...register("phone", {
                             required: true, pattern: {
-                                value: /\d{9,}/,
-                                message: "The phone number must be at least with 9 digits"
+                                value: /\d{9,}$/,
+                                message: "The phone number must be at least with 9 digits and must contains only digits"
                             }
-                        })}/>
+                        })} />
                         {errors.phone && errors.phone.type === "required" && <span className={style.errors}>Phone is required</span>}
                         {errors.phone && <span className={style.errors}>{errors.phone.message}</span>}
                     </Form.Group>
@@ -190,11 +205,7 @@ const Booking = () => {
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Number of Guests</Form.Label>
                         <Form.Control as="select" defaultValue="Select Number of Guests" onChange={onChangeGuestsHandler}>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            {guestNumberOptions.map(x => <option>{x}</option>)}
                         </Form.Control>
                     </Form.Group>
 
@@ -222,9 +233,9 @@ const Booking = () => {
                                 onClose={({ startDate, endDate }) => {
                                     overnights(startDate, endDate);
                                 }}
-                                required = {true}
+                                required={true}
                             />
-                        
+
                             <span className={style.overnights}>Overnights: {nights}</span>
                         </div>
                     </Form.Group>
@@ -234,12 +245,7 @@ const Booking = () => {
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Rooms</Form.Label>
                         <Form.Control as="select" defaultValue="Select room" onChange={onChangeRoomHandler}>
-                            <option>Side Sea View Room</option>
-                            <option>Premium Side Sea View Room</option>
-                            <option>Family Room with Sea View</option>
-                            <option>Family Room with Side Sea View</option>
-                            <option>Maisonette With Sea View</option>
-                            <option>Lagoon Swim-Up Room</option>
+                            {roomsOptions.map(room => <option>{room}</option>)}
                         </Form.Control>
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridState">
