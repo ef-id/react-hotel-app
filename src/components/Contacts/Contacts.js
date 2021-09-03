@@ -38,8 +38,9 @@ const Contacts = () => {
                 </Col>
                 <Col>
                     <iframe
+                        title="Hotel Map"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2935.6219584729492!2d27.63049431533119!3d42.62697297916984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a699d1b340d227%3A0xd25ee4dab5c52d02!2sWave%20Resort!5e0!3m2!1sbg!2sbg!4v1627446921696!5m2!1sbg!2sbg"
-                        allowfullscreen=""
+                        allowFullScreen
                         loading="lazy"
                         className={style.frame}
                     />

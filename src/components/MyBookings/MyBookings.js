@@ -20,7 +20,7 @@ const MyBookings = () => {
             .then(result => {
                 setData(result)
             })
-    }, []);
+    }, [user?.uid]);
 
 
     const onCancelHandler = (e) => {
@@ -38,7 +38,6 @@ const MyBookings = () => {
             cancelButtonText: 'Exit'
         }).then((result) => {
             if (result.value) {
-                console.log('yes')
                 return fetch(`http://localhost:5001/bookings/${idDel}`, { method: 'DELETE' })
                     .then(res => res.json())
                     .then(response => {
@@ -53,8 +52,7 @@ const MyBookings = () => {
             }
         })
     }
-
-    console.log(data == null);
+    
 
     return (
         <Container fluid className={style.container}>
@@ -64,7 +62,7 @@ const MyBookings = () => {
                 </Col>
             </Row>
 
-            {data != false ?
+            {data.length !== 0 ?
                 <Table hover className={style.table}>
                     <thead>
                         <tr>
@@ -83,7 +81,7 @@ const MyBookings = () => {
                     </thead>
                     <tbody>
                         {data.map(x => (
-                            <tr data-id={x.id}>
+                            <tr data-id={x.id} key={x.id}>
                                 <td>{x.firstName}</td>
                                 <td>{x.lastName}</td>
                                 <td>{x.email}</td>
@@ -108,7 +106,5 @@ const MyBookings = () => {
 
     );
 }
-
-MyBookings.contextType = UserContext;
 
 export default MyBookings;

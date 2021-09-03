@@ -33,7 +33,7 @@ const MyGallery = () => {
     return (
         <Gallery>
             <Row md={4}>
-                {images.map(x => <ImageCard img={x} />)}
+                {images.map((x, index) => <ImageCard img={x} key={index} />)}
             </Row>
         </Gallery>
     );

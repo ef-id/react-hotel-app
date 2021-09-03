@@ -28,5 +28,5 @@ export const createBooking = (creator, firstName, lastName, email, phone, room, 
 export const getData = () => {
     return fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => data)
 }

@@ -31,7 +31,7 @@ const Booking = () => {
         'Lagoon Swim-Up Room'
     ];
 
-    let [emailValue, setEmail] = useState(user.email);
+    let [emailValue, setEmail] = useState(user?.email);
     let [guestsCount, setGuestsCount] = useState(1);
     let [room, setRoom] = useState('Side Sea View Room');
 
@@ -87,6 +87,8 @@ const Booking = () => {
             case 'Lagoon Swim-Up Room':
                 setTotalPrice(250 * nightsCount * guestsSelectedCount);
                 break;
+                default:
+                    break;
         }
     }
 
@@ -110,11 +112,6 @@ const Booking = () => {
 
     }
 
-    function validateField(field, err) {
-        if (field == '' || field < 2) {
-            return err;
-        }
-    }
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmitConfirmHandler = (data, e) => {
@@ -183,7 +180,7 @@ const Booking = () => {
                                 value: /\S+@\S+\.\S{2,}/,
                                 message: "Entered value does not match email format"
                             }
-                        })} />
+                        })}/>
                         {errors.email && errors.email.type === "required" && <span className={style.errors}>Email is required</span>}
                         {errors.email && <span className={style.errors}>{errors.email.message}</span>}
                     </Form.Group>
@@ -205,7 +202,7 @@ const Booking = () => {
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Number of Guests</Form.Label>
                         <Form.Control as="select" defaultValue="Select Number of Guests" onChange={onChangeGuestsHandler}>
-                            {guestNumberOptions.map(x => <option>{x}</option>)}
+                            {guestNumberOptions.map((x, index) => <option key={index}>{x}</option>)}
                         </Form.Control>
                     </Form.Group>
 
@@ -245,7 +242,7 @@ const Booking = () => {
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Rooms</Form.Label>
                         <Form.Control as="select" defaultValue="Select room" onChange={onChangeRoomHandler}>
-                            {roomsOptions.map(room => <option>{room}</option>)}
+                            {roomsOptions.map((room, index) => <option key={index}>{room}</option>)}
                         </Form.Control>
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridState">
@@ -266,7 +263,5 @@ const Booking = () => {
     );
 }
 
-
-Booking.contextType = UserContext;
 
 export default Booking;

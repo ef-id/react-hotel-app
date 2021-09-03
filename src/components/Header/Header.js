@@ -18,7 +18,7 @@ const Header = () => {
             <Navigation />
             <Navbar className={style.navbar}>
                 <Container fluid>
-                    <Navbar.Brand href="#"><Link to="/"><img src={logo} className={style.logoImg} /></Link></Navbar.Brand>
+                    <Link to="/"><img src={logo} alt="logo" className={style.logoImg} /></Link>
                     <Navbar.Collapse className="justify-content-end">
                         <Link className={style.navbarLink} to="/">Home</Link>
                         <Link className={style.navbarLink} to='/rooms'>Rooms</Link>
@@ -33,6 +33,5 @@ const Header = () => {
     );
 }
 
-Header.contextType = UserContext; 
 
 export default Header;

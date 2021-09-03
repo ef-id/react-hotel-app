@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container } from 'react-bootstrap';
 import style from './Navigation.module.css';
 
 import { Link } from 'react-router-dom';
@@ -26,6 +26,5 @@ const Navigation = () => {
     );
 }
 
-Navigation.contextType = UserContext; 
 
 export default Navigation;

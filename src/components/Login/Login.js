@@ -34,14 +34,14 @@ const Login = ({
                 <Col md={{ span: 4, offset: 4 }} className={style.registerForm}>
                     <Form className={style.form} onSubmit={onLoginFormSubmitHandler}>
                         <h3 className={style.title}>Login</h3>
-                        <InputGroup className="mb-2" className={style.inputs}>
+                        <InputGroup className="mb-2">
                             <InputGroup.Prepend>
                                 <InputGroup.Text><BsEnvelope /></InputGroup.Text>
                             </InputGroup.Prepend>
                             <FormControl id="inlineFormInputGroup" name="email" placeholder="Email Address"/>
                         </InputGroup>
                         
-                        <InputGroup className="mb-2" className={style.inputs}>
+                        <InputGroup className="mb-2">
                             <InputGroup.Prepend>
                                 <InputGroup.Text><BsLock /></InputGroup.Text>
                             </InputGroup.Prepend>

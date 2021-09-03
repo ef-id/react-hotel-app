@@ -12,7 +12,7 @@ const ImageCard = (props) => {
                 height="768"
             >
                 {({ ref, open }) => (
-                    <img ref={ref} onClick={open} src={props.img} className={style.image} />
+                    <img ref={ref} onClick={open} src={props.img} alt={props.img} className={style.image} />
                 )}
             </Item>
         </Col>

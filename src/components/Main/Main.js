@@ -25,7 +25,7 @@ const Main = () => {
     return (
         <Container fluid className={style.container}>
             <div className={style.imageContainer}>
-                <img src={mainImg} className={style.image} />
+                <img src={mainImg} alt="main" className={style.image} />
             </div>
             <ArticleSection
                 mainTitle="Enjoy the exclusive oasis of pleasure"

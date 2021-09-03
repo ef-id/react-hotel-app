@@ -38,7 +38,7 @@ const Register = ({ history }) => {
                 <Col md={{ span: 4, offset: 4 }}>
                     <Form className={style.form} onSubmit={handleSubmit(onRegisterSubmitHandler)}>
                         <h3 className={style.title}>Registration</h3>
-                        <InputGroup className="mb-2" className={style.inputs}>
+                        <InputGroup className="mb-2">
                             <InputGroup.Prepend>
                                 <InputGroup.Text><BsEnvelope /></InputGroup.Text>
                             </InputGroup.Prepend>
@@ -52,7 +52,7 @@ const Register = ({ history }) => {
                         {errors.email && errors.email.type === "required" && <span className={style.errors}>Email is required</span>}
                         {errors.email && <span className={style.errors}>{errors.email.message}</span>}
 
-                        <InputGroup className="mb-2" className={style.inputs}>
+                        <InputGroup className="mb-2">
                             <InputGroup.Prepend>
                                 <InputGroup.Text><BsLock /></InputGroup.Text>
                             </InputGroup.Prepend>
@@ -68,7 +68,7 @@ const Register = ({ history }) => {
                         {errors.password && errors.password.type === "required" && <span className={style.errors}>Password is required</span>}
                         {errors.password && <span className={style.errors}>{errors.password.message}</span>}
 
-                        <InputGroup className="mb-2" className={style.inputs}>
+                        <InputGroup className="mb-2">
                             <InputGroup.Prepend>
                                 <InputGroup.Text><BsShieldLock /></InputGroup.Text>
                             </InputGroup.Prepend>
@@ -77,7 +77,7 @@ const Register = ({ history }) => {
                         <span className={style.errors}>{err}</span>
 
                         <Form.Group className={style.btnContainer}>
-                            <Button type="submit" className="float-right" className={style.formBtn}>Create Account</Button>
+                            <Button type="submit" className={style.formBtn}>Create Account</Button>
                         </Form.Group>
                         <Form.Group className={style.textContainer}>
                             <p>Already have an account? <Link to="/login">Sing In</Link></p>
